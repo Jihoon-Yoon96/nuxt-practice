@@ -46,9 +46,9 @@
         icon
         @click.stop="fixed = !fixed"
       >
-        <v-icon>mdi-minus</v-icon>
+        <!-- <v-icon>mdi-minus</v-icon> -->
       </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title v-text=this.$store.state.user.name   />
       <v-spacer />
       <v-btn
         icon
@@ -96,11 +96,11 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
-      user:{
+      userInfo:{
         name:'윤지훈',
         age:27,
         address:'서울시',
-        phone:'010-9699-9378'
+        phone:'010-9699-9389'
       },
       items: [
         {
@@ -110,8 +110,8 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Child1',
-          to: '/child'
+          title: 'Store',
+          to: '/store'
         }
       ],
       miniVariant: false,
@@ -119,6 +119,16 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
-  }
+  },
+  methods:{
+    userInfo1(){
+      this.$store.dispatch('user/set_user', this.userInfo)
+      console.log("create: "+ this.$store.state.user.name)
+    }
+  },
+  created(){
+    this.userInfo1()
+    
+  },
 }
 </script>
