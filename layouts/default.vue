@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app >
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -96,16 +96,22 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
+      user:{
+        name:'윤지훈',
+        age:27,
+        address:'서울시',
+        phone:'010-9699-9378'
+      },
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Parent',
           to: '/'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Child1',
+          to: '/child'
         }
       ],
       miniVariant: false,

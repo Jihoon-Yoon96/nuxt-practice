@@ -1,83 +1,84 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+    <v-col  sm="12" md="auto" v-for="(b, i) in border" :key="i">
+      <card1 
+        :title = b.title
+        :content = b.content
+        :user = b.user
+        :heart_num = b.heart_num
+        :share_num = b.share_num
+        :avt= b.avt
+      />
     </v-col>
   </v-row>
 </template>
 
 <script>
+import card1 from '@/components/card/card1'
+
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  components:{card1},
+  data:()=>({
+    border:[
+      {
+        title:"test1",
+        content:"test<br>test<br>test<br>",
+        user:"test1",
+        heart_num:12,
+        share_num:300,
+        avt:{
+          topType: "WinterHat1",
+          accessoriesType : "Kurt",
+          hairColor : "Red",
+          facialHairType : "BeardMedium",
+          clotheType : "Hoodie",
+          clotheColor : "Black",
+          eyeType : "Default",
+          eyebrowType : "Default",
+          mouthType : "Default",
+          skinColor : "Brown"
+        }
+      },
+      {
+        title:"test1",
+        content:"testtesttesttesttesttesttesttesttesttesttesttesttest<br>test<br>test<br>",
+        user:"test1",
+        heart_num:6,
+        share_num:34,
+        avt:{
+          topType: "",
+          accessoriesType : "",
+          hairColor : "",
+          facialHairType : "",
+          clotheType : "",
+          clotheColor : "",
+          eyeType : "",
+          eyebrowType : "",
+          mouthType : "",
+          skinColor : ""
+        }
+      },
+      {
+        title:"test1",
+        content:"test<br>testtesttesttesttesttesttesttesttesttesttesttesttesttesttestv<br>test<br>",
+        user:"test1",
+        heart_num:7,
+        share_num:400,
+        avt:{
+          topType: "ShortHairDreads01",
+          accessoriesType : "Round",
+          hairColor : "Blue",
+          facialHairType : "Blank",
+          clotheType : "GraphicShirt",
+          clotheColor : "Pink",
+          eyeType : "Default",
+          eyebrowType : "Default",
+          mouthType : "Default",
+          skinColor : "Pale"
+        }
+      },
+    ]
+  })
 }
 </script>
